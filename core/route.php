@@ -1,21 +1,21 @@
-<?php
+ <?php
 // Met de route functie wordt bepaald welke controller en welke action er moet worden ingeladen
 function route()
 {
     // Hier wordt de functie aangeroepen die de URL op splitst op het standaard seperatie teken (in PHP is dit een /)
     $url = splitUrl();
     // Er wordt een variable opgemaakt uit de URL, de eerste variabele wordt geplaatst in de key controller, de tweede wordt in de key action geplaatst. De overige worden in params geplaatst (als array)
-    // Als die niet bestaat, gaat hij de standaard controller inladen, welke in config.php is aangemaakt.
+    // Als die niet bestaat, gaat hij de standaard controller inladen, welke in config.php is aangemaakt. 
     // Hierna roept hij standaard de index functie aan.
     if (!$url['controller']) {
         require(ROOT . 'controller/' . DEFAULT_CONTROLLER . 'Controller.php');
         call_user_func('index');
-        // Als dat niet het geval is, dus als er wel een controller is, kijkt hij of het bestand bestaat.
-        //  Vervolgens laad hij dat bestand in
+    // Als dat niet het geval is, dus als er wel een controller is, kijkt hij of het bestand bestaat. 
+    //  Vervolgens laad hij dat bestand in
     } elseif (file_exists(ROOT . 'controller/' . $url['controller'] . '.php')) {
         require(ROOT . 'controller/' . $url['controller'] . '.php');
-        // Vervolgens wordt er gekeken of er een functie met de naam bestaat die in de key action zit.
-        // Bijvoorbeeld: http://localhost/Students/Edit/1, dan is de action Edit.
+        // Vervolgens wordt er gekeken of er een functie met de naam bestaat die in de key action zit. 
+        // Bijvoorbeeld: http://localhost/Students/Edit/1, dan is de action Edit. 
         // De 1 wordt als eerste 'params' geplaatst
         // In de controller Students wordt gekeken of de function Edit bestaat.
         if (function_exists($url['action'])) {
@@ -42,18 +42,19 @@ function route()
 function splitUrl()
 {
     // Als er iets in de key url zit van $_GET, wordt de code uitgevoerd
-    $start_url = getRequestedPath();
+    if (isset($_GET['url'])) {
 
+            
         // Met trim haal je de zwevende shlashes weg. Bijvoorbeeld:
         // /Students/Edit/1/ wordt Students/Edit/1
-        $tmp_url = trim($start_url , "/");
 
+        $tmp_url = trim($_GET['url'], "/");
 
         // Dit haalt de vreemde karakters uit de strings weg
         $tmp_url = filter_var($tmp_url, FILTER_SANITIZE_URL);
 
         // Met explode splits je een string op. Elk gedeelte voor de "/" wordt in een nieuwe index van een array gestopt.
-        // Bijvoorbeeld /Students/Edit/1 wordt opgedeeld in:
+        // Bijvoorbeeld /Students/Edit/1 wordt opgedeeld in: 
         // $temp_url[0] = "Students",
         // $temp_url[1] = "Edit",
         // $temp_url[2] = "1"
@@ -61,7 +62,7 @@ function splitUrl()
 
         // Hier worden op basis van de eerder opgegeven variable $tmp_url de keys controller en action gevuld
 
-        $url['controller'] = !empty($tmp_url[0]) ? ucwords($tmp_url[0] . 'Controller') : null;
+        $url['controller'] = isset($tmp_url[0]) ? ucwords($tmp_url[0] . 'Controller') : null;
         $url['action'] = isset($tmp_url[1]) ? $tmp_url[1] : 'index';
 
         // Die twee waarden worden uit de array gehaald
@@ -72,34 +73,6 @@ function splitUrl()
         $url['params'] = array_values($tmp_url);
 
         // Dit wordt teruggegeven aan de functie
-        return $url;
-    
-}
-
-// Simpele fix voor NGINX gebruikers
-function getRequestedPath(){
-    // Controleer of de URL herschreven is
-
-    if(isset($_GET['apache']) ){
-        // Zo ja, geef de gehele url terug
-
-        if($_GET["url"] == "index.php"){
-            return '';
-        } else {
-            return $_GET['url'];
-        }
-
-
-    } elseif ($_SERVER['PHP_SELF']){
-        // Zo niet, geef het gevraagde pad terug
-        if($_SERVER["PHP_SELF"] == "/"){
-            return '';
-        } else {
-            return $_SERVER['PHP_SELF'];
-        }
-        
-    } else {
-        // Lukt allebei niet? Geef false terug
-        return false;
-    }
+        return $url;    
+    }   
 }
