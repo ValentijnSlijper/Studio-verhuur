@@ -1,4 +1,1 @@
-# Studio-verhuur
-1.Remy Nijsten
-2.Thijmen Stegenga
-3.Valentijn Slijper
+Vergeet niet de config.php voor gebruik aan te passen aan jouw ontwikkel omgeving.
