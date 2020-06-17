@@ -11,7 +11,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap" rel="stylesheet">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-	<link rel="stylesheet" type="text/css" href="<? URL ?>css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL?>css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL?>css/login.css">
 </head>
 <body>
 
@@ -21,11 +22,14 @@
 		<p class='sv-color-mint sv-text-light m-0 pl-3 animate__animated animate__bounceInLeft'>The first step to your new #1 record!</p>		
 	</div>
 
-	<ul class='col-lg-6 d-flex justify-content-end p-3'>
-		<li class='sv-color-mint sv-text-light mr-3'>Home</li>
-		<li class='sv-color-mint sv-text-light mr-3'>Studios</li>
-		<li class='sv-color-mint sv-text-light mr-3'>Users</li>
-		<li class='sv-color-mint sv-text-light mr-3'>Reservations</li>
+	<ul class='col-lg-6 d-flex justify-content-end p-5'>
+		<a href="<?=URL?>Home/index"><li class='sv-color-mint sv-text-light mr-5'>Home</li></a>
+		<a href="<?=URL?>Home/studios"><li class='sv-color-mint sv-text-light mr-5'>Studios</li></a>
+		<a href="<?=URL?>Home/users"><li class='sv-color-mint sv-text-light mr-5'>Users</li></a>
+		<a href="<?=URL?>Home/reservations"><li class='sv-color-mint sv-text-light mr-5'>Reservations</li></a>
+		<li class='sv-color-mint sv-text-light mr-5 login' data-toggle="modal" data-target="#login">Login</li>
 	</ul>
 </nav>
+
+<div class="mainwrapper">
 

@@ -1,0 +1,12 @@
+.modal-content{
+    background-color: transparent;
+    border: 0;
+}
+
+.active-login{
+	color: #3BBA9C;
+}
+
+.select h3{
+	cursor: pointer;
+}

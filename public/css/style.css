@@ -4,11 +4,20 @@
 	font-family: 'Manrope', sans-serif;
 }
 
+a{
+	text-decoration: none;
+	color: #3BBA9C;
+}
+
 body{
 	background: #2E3047;
 }
 
 /*TYPE & COLORS*/
+
+.sv-color-white{
+	color: white;
+}
 
 .sv-color-mint{
 	color: #3BBA9C;
@@ -46,6 +55,7 @@ body{
 	font-style: italic;
 	color: #707793;
     line-height: 6em;
+    font-weight: lighter;
 }
 /*HEADER*/
 
@@ -62,35 +72,55 @@ nav h2{
 nav ul li{
 	display: inline-block;
 	cursor: pointer;
+	height: 1.5em;
 }
 
 /*MAIN*/
 
+.mainwrapper{
+	max-width: 60%;
+	margin: 0 auto;
+	text-align: center;
+}
+
 .sv-container{
 	background: #3C3F58;
 	border-radius: 2em;
-	width: 80%;
+	width: 100%;
 	height: 500px;
 	margin: 2.5em auto;
 	overflow:hidden;
+	position: relative;
 }
 
 .sv-button{
-	width: 100px;
-	height: 50px;
-	background: #3BBA9C;
-	color: #3C3F58;
-	margin-top: 2em;
+	width: 200px;
+    height: 50px;
+    background: #3BBA9C;
+    color: #3C3F58;
+    border-radius: 1em;
+    border: 0px;
+}
+
+.sv-card{
+	display: inline-block;
+	width: 225px;
+	height: fit-content;
 	border-radius: 1em;
-	border: 0px;
+	background: #3C3F58;
+}
+
+.sv-input{
+    width: 80%;
+    height: 2em;
+    border-radius: 1em;
+    text-align: center;
+    margin: 0 auto;
+    border: 0;
 }
 
 .sv-small{
 	height: 100px;
-}
-
-.sv-button ::hover{
-	transform: scale(0.9, 0.9);
 }
 
 .clippath-right{
@@ -105,11 +135,30 @@ nav ul li{
 	opacity: 0.75;
 }
 
+.circle{
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	width: 50px;
+	height: 50px;
+	border-radius: 10em;
+	background-color: #3c3f58d4;
+}
+
+.back{
+    color: #3BBA9C;
+    font-size: 1.5em;
+    line-height: 2em;
+    font-weight: bold;
+}
+
 /*FOOTER*/
 
 footer{
 	background: #3C3F58;
 	color: #3BBA9C;
 	text-align: center;
+	height: 2.5em;
+	line-height: 2.5em;
 }
 
