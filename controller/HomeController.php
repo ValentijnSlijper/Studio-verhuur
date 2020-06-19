@@ -1,11 +1,17 @@
 <?php
 
 require(ROOT . "model/StudioModel.php");
+require(ROOT . "model/ReservationModel.php");
+require(ROOT . "model/SessionModel.php");
+
+
 session_start();
 
 function index(){
 
-	render('index');
+	render('index', array(
+		'session' => readSession()
+	));
 }
 
 function studios(){
@@ -20,7 +26,8 @@ function users(){
 }
 
 function reservations(){
-    render('reservations');
+	render('reservations', array(
+		'reservations' => readReservations()));
 }
 
 

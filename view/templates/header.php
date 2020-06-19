@@ -25,7 +25,6 @@
 	<ul class='col-lg-6 d-flex justify-content-end p-5'>
 		<a href="<?=URL?>Home/index"><li class='sv-color-mint sv-text-light mr-5'>Home</li></a>
 		<a href="<?=URL?>Home/studios"><li class='sv-color-mint sv-text-light mr-5'>Studios</li></a>
-		<a href="<?=URL?>Home/users"><li class='sv-color-mint sv-text-light mr-5'>Users</li></a>
 		<a href="<?=URL?>Home/reservations"><li class='sv-color-mint sv-text-light mr-5'>Reservations</li></a>
 		<li class='sv-color-mint sv-text-light mr-5 login' data-toggle="modal" data-target="#login">Login</li>
 	</ul>

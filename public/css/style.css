@@ -145,11 +145,19 @@ nav ul li{
 	background-color: #3c3f58d4;
 }
 
+.closemodal{
+	cursor: pointer;
+}
+
 .back{
     color: #3BBA9C;
     font-size: 1.5em;
     line-height: 2em;
     font-weight: bold;
+}
+
+.table td, .table th{
+	border-top: none;
 }
 
 /*FOOTER*/

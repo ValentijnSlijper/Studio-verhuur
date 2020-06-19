@@ -22,7 +22,7 @@
 
 		<p class='sv-color-lightest sv-text-light'>A colorfull studio filled with the newest modern equipment. Ready to produce any mainstage track!</p>
 
-		<button class="sv-button mt-1">Book now!</button>
+		<button class="sv-button mt-1 booknow">Book now!</button>
 	</div>
 
 </div>
