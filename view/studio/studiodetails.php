@@ -12,17 +12,17 @@
 		<h2 class='text-center sv-color-mint mb-3'><?=$studio['name']?></h2>
 
 		<h5 class='m-0'>Place</h5>
-		<p class='sv-color-dark sv-font-light'><?= $studio['place'] ?></p>
+		<p class='sv-color-lightest sv-font-light'><?= $studio['place'] ?></p>
 
 		<h5 class='m-0'>Price / hour</h5>
-		<p class='sv-color-dark sv-font-light'><?= $studio['price'] ?></p>
+		<p class='sv-color-lightest sv-font-light'><?= $studio['price'] ?></p>
 
 		<h5 class='m-0'>Maximum users</h5>
-		<p class='sv-color-dark sv-font-light'><?= $studio['maxusers'] ?></p>
+		<p class='sv-color-lightest sv-font-light'><?= $studio['maxusers'] ?></p>
 
 		<p class='sv-color-lightest sv-text-light'><?= $studio['description'] ?></p>
 
-		<button class="sv-button mt-1 booknow">Book now!</button>
+		<button class="sv-button mt-4 booknow">Book now!</button>
 	</div>
 
 </div>
