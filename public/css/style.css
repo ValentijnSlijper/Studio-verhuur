@@ -87,7 +87,7 @@ nav ul li{
 	background: #3C3F58;
 	border-radius: 2em;
 	width: 100%;
-	min-height: 500px;
+	min-height: fit-content;
 	margin: 2.5em auto;
 	overflow:hidden;
 	position: relative;
