@@ -1,4 +1,4 @@
- <?php
+<?php
 // Met de route functie wordt bepaald welke controller en welke action er moet worden ingeladen
 function route()
 {

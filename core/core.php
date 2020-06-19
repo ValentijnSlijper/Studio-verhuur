@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // Functie om een database verbinding op te zetten. Hij geeft het database object terug
 function openDatabaseConnection() 
 {
@@ -21,9 +23,10 @@ function render($filename, $data = null)
 		foreach($data as $key => $value) {
 			$$key = $value;
 		}
-	} 
+	}
 
 	require(ROOT . 'view/templates/header.php');
-	require(ROOT . 'view/' . $filename . '.php');
+	require(ROOT . '/view/modals/login.php');
+	require(ROOT . 'view/studio/' . $filename . '.php');
 	require(ROOT . 'view/templates/footer.php');
 }

@@ -17,5 +17,13 @@ $(".select h3").on("click", function(){
 			$('.error-field').css('height', '0em');
 		}
 	}
+});
 
+$('.booknow').on('click', function(){
+	$('input[name=login]').val() == 'false' ? $('.login').modal('show') : window.location.href = 'home/reservations';
+});
+
+$('.closemodal').on('click', function(){
+	$(this).closest('.modal').modal('hide');
+	$('.modal-backdrop').remove();
 });

@@ -1,4 +1,4 @@
-<div class="modal fade login" id="login" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal login" id="login" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
 
@@ -28,7 +28,9 @@
             </div>
 
             <input type="hidden" name="function" value="login" class="form-function">
-            <button class="sv-button mt-5">LOGIN</button>         
+            <button class="sv-button mt-5">LOGIN</button>
+
+            <p class='mt-5 closemodal'>Close Window</p>    
           </form>
 
           <div class="panel invisible error animated">
