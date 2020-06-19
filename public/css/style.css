@@ -101,6 +101,14 @@ nav ul li{
     border-radius: 1em;
     border: 0px;
 }
+.sv-button-reservation{
+	width: 150px;
+    height: 50px;
+    background: #3BBA9C;
+    color: #3C3F58;
+    border-radius: 1em;
+    border: 0px;
+}
 
 .sv-card{
 	display: inline-block;
