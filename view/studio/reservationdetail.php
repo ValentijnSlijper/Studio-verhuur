@@ -1,5 +1,47 @@
 <div class="sv-container row animate__animated animate__fadeIn">
 
-	<?php var_dump($reservation); ?>
+	<img src='<?= URL . $reservation['studioimg'] ?>' class='col-8 p-0 clippath-right'>
+
+	<a href="<?=URL?>Home/reservations">
+		<div class="circle text-center">
+			<p class="back">X</p>
+		</div>
+	</a>
+
+	<div class="col-4 pt-5 text-center mb-5">
+		<h2 class='text-center sv-color-mint mb-3'><?=$reservation['studio']?></h2>
+
+	<div class="row">
+			<div class="col-6">
+				<h5 class='m-0'>Name</h5>
+				<p class='sv-color-lightest sv-font-light'><?= $reservation['user'] ?></p>
+				<h5 class='m-0'>Total Price</h5>
+				<p class='sv-color-lightest sv-font-light'>€<?= $reservation['price'] ?></p>
+			</div>
+
+		<div class="col-6">
+			<h5 class='m-0'>Start Time</h5>
+			<p class='sv-color-lightest sv-font-light'><?= $reservation['starttime'] ?></p>
+			<h5 class='m-0'>End Time</h5>
+			<p class='sv-color-lightest sv-font-light'><?= $reservation['endtime'] ?></p>
+		</div>
+	</div>
+
+	<h5 class='m-0'>Instruments</h5>
+	<p class='sv-color-lightest sv-font-light'><?= $reservation['instrument'] ?></p>
+
+	<p class='sv-color-lightest sv-text-light'><?= $reservation['description'] ?></p>
+
+
+		<div class="row mt-4">
+			<div class="col-6">
+			<button class="sv-button-reservation mt-1">Update</button>
+			</div>
+			<div class="col-6">
+			<button class="sv-button-reservation mt-1">Delete</button>
+			</div>
+		</div>
+
+	</div>
 
 </div>

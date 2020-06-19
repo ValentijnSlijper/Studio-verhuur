@@ -15,8 +15,8 @@
 
 		<tbody>
 
-			<?php 
-				foreach($reservations as $key=>$value): 
+			<?php
+				foreach($reservations as $key=>$value):
 
 				$id = $value['id'];
 				$studio = $value['studio'];
@@ -24,6 +24,7 @@
 				$price = $value['price'];
 				$starttime = $value['starttime'];
 				$endtime = $value['endtime'];
+				$description = $value['description'];
 
 			?>
 
@@ -38,7 +39,7 @@
 
 			<?php endforeach; ?>
 
-			
+
 		</tbody>
-	</table>	
+	</table>
 </div>
