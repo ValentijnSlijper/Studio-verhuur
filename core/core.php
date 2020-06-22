@@ -27,7 +27,7 @@ function render($filename, $data = null)
 
 	require(ROOT . 'view/templates/header.php');
 	require(ROOT . '/view/modals/login.php');
-	require(ROOT . '/view/modals/update.php');
+	require(ROOT . '/view/modals/updatereservation.php');
 	require(ROOT . 'view/studio/' . $filename . '.php');
 	require(ROOT . 'view/templates/footer.php');
 }
