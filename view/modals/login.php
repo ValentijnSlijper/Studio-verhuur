@@ -14,28 +14,27 @@
 
             <div class="input-group my-3 d-none animate__animated animate__fadeIn">
               <input type="name" name="name" placeholder="Name" class="input-padding-left sv-input"/>
-              <div class="error-field" data-name="name"></div>
             </div>
 
             <div class="input-group my-3">
               <input type="mail" name="mail" placeholder="Mail" class="input-padding-left sv-input">
-              <div class="error-field" data-name="mail"></div>  
             </div>
 
             <div class="input-group my-3">
               <input type="password" name="password" placeholder="Password (max. 8 characters)" class="input-padding-left password sv-input"/>
-              <div class="error-field" data-name="password"></div>  
+            </div>
+
+            <div class="errorwrapper">
+              
             </div>
 
             <input type="hidden" name="function" value="login" class="form-function">
             <button class="sv-button mt-5">LOGIN</button>
 
+
+
             <p class='mt-5 closemodal'>Close Window</p>    
           </form>
-
-          <div class="panel invisible error animated">
-            <div class="panel-body errorMSG"></div>
-          </div>
 
         </div>
     </div>

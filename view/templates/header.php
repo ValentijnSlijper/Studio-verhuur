@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +15,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 	<link rel="stylesheet" type="text/css" href="<?=URL?>css/style.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL?>css/login.css">
+	<link rel="stylesheet" type="text/css" href="<?=URL?>css/media.css">
 </head>
 <body>
 
@@ -26,7 +29,7 @@
 		<a href="<?=URL?>Home/index"><li class='sv-color-mint sv-text-light mr-5'>Home</li></a>
 		<a href="<?=URL?>Home/studios"><li class='sv-color-mint sv-text-light mr-5'>Studios</li></a>
 		<a href="<?=URL?>Home/reservations"><li class='sv-color-mint sv-text-light mr-5'>Reservations</li></a>
-		<li class='sv-color-mint sv-text-light mr-5 login' data-toggle="modal" data-target="#login">Login</li>
+		<li class='sv-color-mint sv-text-light mr-5 login' data-toggle="modal" data-target="#login"><?=$session['navtext']?></li>
 	</ul>
 </nav>
 

@@ -2,6 +2,6 @@
 
 require(ROOT . "model/SessionModel.php");
 
-function sessionStatus(){
+function getSession(){
 	return readSession();
 }

@@ -1,3 +1,5 @@
+<?php var_dump($reservation) ?>
+
 <div class="sv-container row animate__animated animate__fadeIn">
 
 	<img src='<?= URL . $reservation['studioimg'] ?>' class='col-8 p-0 clippath-right'>
@@ -28,14 +30,17 @@
 	</div>
 
 	<h5 class='m-0'>Instruments</h5>
+	<img src="<?= URL . $reservation['instrumentimg'] ?>" alt='instrumentimg' class='instrumentimg'>
 	<p class='sv-color-lightest sv-font-light'><?= $reservation['instrument'] ?></p>
+
+	<p>	&#9702; </p>
 
 	<p class='sv-color-lightest sv-text-light'><?= $reservation['description'] ?></p>
 
 
 		<div class="row mt-4">
 			<div class="col-6">
-			<button class="sv-button-reservation mt-1">Update</button>
+			<button class="sv-button-reservation mt-1" data-target="#update" data-toggle="modal">Update</button>
 			</div>
 			<div class="col-6">
 			<button class="sv-button-reservation mt-1">Delete</button>

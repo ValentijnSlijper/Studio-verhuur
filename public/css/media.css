@@ -1,0 +1,11 @@
+@media only screen 
+and (max-width : 1024px){
+	.clippath-right, .clippath-left{
+		clip-path: none;
+	}
+
+	.media-p{
+	    width: 75%;
+	    margin: 0 auto;
+	}
+}	

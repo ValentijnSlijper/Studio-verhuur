@@ -1,8 +1,8 @@
 <div class="cardwrapper pt-5 pb-5">
 
-	<?php
+	<?php 
 
-	foreach($studios as $key=>$value):
+	foreach($studios as $key=>$value): 
 
 	$id = $value['id'];
 	$name = $value['name'];
@@ -10,7 +10,6 @@
 	$place = $value['place'];
 	$price = $value['price'];
 	$maxusers = $value['maxusers'];
-	$description = $value['description'];
 
 	?>
 

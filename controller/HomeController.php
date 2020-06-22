@@ -4,9 +4,6 @@ require(ROOT . "model/StudioModel.php");
 require(ROOT . "model/ReservationModel.php");
 require(ROOT . "model/SessionModel.php");
 
-
-session_start();
-
 function index(){
 
 	render('index', array(
@@ -17,17 +14,16 @@ function index(){
 function studios(){
 
     render('studios', array(
-        'studios' => getAllStudios())
-    );
-}
-
-function users(){
-    render('users');
+        'studios' => getAllStudios(),
+	    'session' => readSession()
+	));
 }
 
 function reservations(){
 	render('reservations', array(
-		'reservations' => readReservations()));
+		'reservations' => readReservations(),
+		'session' => readSession()
+	));
 }
 
 

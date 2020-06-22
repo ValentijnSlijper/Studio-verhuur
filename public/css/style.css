@@ -19,6 +19,10 @@ body{
 	color: white;
 }
 
+.sv-color-red{
+	color: #a03c3c;
+}
+
 .sv-color-mint{
 	color: #3BBA9C;
 }
@@ -57,6 +61,7 @@ body{
     line-height: 6em;
     font-weight: lighter;
 }
+
 /*HEADER*/
 
 nav{
@@ -72,13 +77,16 @@ nav h2{
 nav ul li{
 	display: inline-block;
 	cursor: pointer;
+}
+
+nav ul a, nav ul li{
 	height: 1.5em;
 }
 
 /*MAIN*/
 
 .mainwrapper{
-	max-width: 60%;
+	max-width: 80%;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -137,7 +145,7 @@ nav ul li{
 
 .clippath-left{
 	clip-path: polygon(0 0, 100% 0%, 100% 100%, 30% 100%);
-}
+}	
 
 .faded{
 	opacity: 0.75;
@@ -168,6 +176,22 @@ nav ul li{
 	border-top: none;
 }
 
+.error{
+	width: 80%;
+    height: 50px;
+    text-align: center;
+    color: white;
+    background: #a03c3c;
+    margin: 0 auto;
+    border-radius: 2em;
+    line-height: 3em;
+}
+
+.instrumentimg{
+	width: 75px;
+	height: 75px;
+}
+
 /*FOOTER*/
 
 footer{
@@ -177,3 +201,39 @@ footer{
 	height: 2.5em;
 	line-height: 2.5em;
 }
+
+
+/*ANIMATIONS*/
+
+.spin{
+	animation:spin 4s linear infinite;
+}
+
+@keyframes spin { 
+	100% { 
+		-webkit-transform: rotate(360deg); 
+		transform:rotate(360deg); 
+	} 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
