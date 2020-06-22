@@ -43,7 +43,7 @@
 			<button class="sv-button w-75 mt-1" data-target="#update" data-toggle="modal">Update</button>
 			</div>
 			<div class="col-6">
-			<button class="sv-button w-75 mt-1">Delete</button>
+			<a href="<?php echo URL ?>reservation/destroy/<?php echo $reservation["id"] ?>"<button class="sv-button w-75 mt-1">Delete</button></a>
 			</div>
 		</div>
 
