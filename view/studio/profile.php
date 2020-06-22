@@ -6,7 +6,7 @@
 	<p class='sv-text-light sv-color-dark'><?=$user['name']?></p>
 
 	<div class="row">
-		<button class="sv-button mx-2 col-lg-2 col-sm-12 ">Reservations</button>
+		<button class="sv-button mx-2 col-lg-2 col-sm-12 reservations">Reservations</button>
 		<button class="sv-button mx-2 col-lg-2 col-sm-12 update-user">Update Profile</button>
 		<button class="sv-button mx-2 col-lg-2 col-sm-12 delete-user">Delete Profile</button>
 		<button class="sv-button mx-2 col-lg-2 col-sm-12 logout">Log Out</button>

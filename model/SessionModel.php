@@ -22,7 +22,7 @@ function readSession(){
 		$stmt->execute();
 		$data = $stmt->fetch();
 
-		$_SESSION['navlink'] = 'https://studio-verhuur.tk/home/profile/' . $data['id'];
+		$_SESSION['navlink'] = 'https://studio-verhuur.tk/home/profile';
 	}else{
 		$_SESSION['navtext'] = 'Login';
 		$_SESSION['navlink'] = '#';

@@ -28,10 +28,10 @@ function reservations(){
 	));
 }
 
-function profile($id){
+function profile(){
 	render('profile', array(
 		'session' => readSession(),
-		'user' => selectUser($id)
+		'user' => selectUser()
 	));
 }
 

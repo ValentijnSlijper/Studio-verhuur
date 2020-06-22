@@ -49,12 +49,14 @@ function loginUser($mail, $password){
 	}
 }
 
-function selectUser($id){
+function selectUser(){
 	try{
 		$conn = openDatabaseConnection();
 
-		$stmt = $conn->prepare("SELECT id, name, mail FROM users WHERE id = :id");
-		$stmt->bindParam(":id", $id);
+		$mail = $_SESSION['mail'];
+
+		$stmt = $conn->prepare("SELECT id, name, mail FROM users WHERE mail = :mail");
+		$stmt->bindParam(":mail", $mail);
 		$stmt->execute();
 		$result = $stmt->fetch();
 	}

@@ -1,4 +1,4 @@
-<?php var_dump($session) ?>
+<?php var_dump($reservations) ?>
 
 <div class="sv-container">
 	<table class="table">
@@ -28,11 +28,11 @@
 			?>
 
 				<tr>
-					<td><?=$studio?></td>
-					<td><?=$user?></td>
-					<td><?=$price?></td>
-					<td><?=$starttime?></td>
-					<td><?=$endtime?></td>
+					<td class='sv-color-white'><?=$studio?></td>
+					<td class='sv-color-white'><?=$user?></td>
+					<td class='sv-color-white'><?=$price?></td>
+					<td class='sv-color-white'><?=$starttime?></td>
+					<td class='sv-color-white'><?=$endtime?></td>
 					<td><a href="<?=URL?>reservation/detail/<?=$id?>"><i class="fas fa-search mb-2 mt-2"></i></a></td>
 				</tr>
 
