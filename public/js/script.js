@@ -1,24 +1,23 @@
 $('.booknow').on('click', function(){
 
 
-	$.post('https://studio-verhuur.tk/session/jsonSession', {}, function(result) {
+    $.post('https://studio-verhuur.tk/session/jsonSession', {}, function(result) {
 
-		console.log(result);
-	});
+		const data = JSON.parse(result);
 
-
-
-
-
-
-	// wanneer de $session['login'] === false
-	// open je de login modal als volgt: $('.login').modal('show')
-	// anders open je de nog te maken reservation modal: $('.reservation').modal('show')
-	// en vul je deze met data van de te boeken studio
-
+        if (data['login'] !== true) {
+            $('.login').modal('show')
+        }else {
+            window.location.href=('https://studio-verhuur.tk/home/reservations');
+        }
+    });
 });
 
+$('.reservation').on('click', function(){
+	window.location.href = 'https://studio-verhuur.tk/home/reservations';
+})
+
 $('.closemodal').on('click', function(){
-	$(this).closest('.modal').modal('hide');
-	$('.modal-backdrop').remove();
+    $(this).closest('.modal').modal('hide');
+    $('.modal-backdrop').remove();
 });
