@@ -15,6 +15,12 @@ function newuser(){
 
 }
 
+// function userdata($id){
+
+// 	echo json_encode();
+	
+// }
+
 function login(){
 
 	// variabelen maken aan de hand van de formdata
@@ -23,6 +29,12 @@ function login(){
 	// wanneer de functie true returned, stuurt het success naar het script, zo niet echo'ed het de error van de usermodel
 	echo json_encode(loginUser($mail, $password));
 
+}
+
+function logout(){
+	unset($_SESSION['login']);
+	unset($_SESSION['name']);
+	unset($_SESSION['mail']);
 }
 
 

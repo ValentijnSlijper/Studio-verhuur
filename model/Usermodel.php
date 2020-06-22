@@ -49,6 +49,24 @@ function loginUser($mail, $password){
 	}
 }
 
+function selectUser($id){
+	try{
+		$conn = openDatabaseConnection();
+
+		$stmt = $conn->prepare("SELECT id, name, mail FROM users WHERE id = :id");
+		$stmt->bindParam(":id", $id);
+		$stmt->execute();
+		$result = $stmt->fetch();
+	}
+		catch(PDOException $e){
+		echo "Connection failed: " . $e->getMessage();
+	}
+
+	$conn = null;
+
+	return $result;
+}
+
 
 // function updateUser($data, $id){
 // 	$conn = openDatabaseConnection();

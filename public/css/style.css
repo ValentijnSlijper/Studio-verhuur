@@ -64,6 +64,11 @@ body{
 
 /*HEADER*/
 
+.row{
+	display: flex;
+	justify-content: center;
+}
+
 nav{
     background-image: url(../public/img/home/header.jpg);
     background-attachment: fixed;
@@ -190,6 +195,10 @@ nav ul a, nav ul li{
 .instrumentimg{
 	width: 75px;
 	height: 75px;
+}
+
+.profile-container i {
+	font-size: 5em;
 }
 
 /*FOOTER*/

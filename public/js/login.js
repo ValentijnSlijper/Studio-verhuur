@@ -43,8 +43,12 @@ $('.loginform').on('submit', function(e){
 			// hierna word een melding weergegeven dat het is gelukt
 			else if(data['function'] == 'register'){
 				$.post('https://studio-verhuur.tk/user/newuser/', {data: data['data']}, function(result) {
-					showError('Account created. Logging in...', '#3BBA9C');
+					showError('Account created! Logging in...', '#3BBA9C');
 				});
+
+				setTimeout(function(){
+						window.location.href = 'https://studio-verhuur.tk/home/index';
+				}, 2000);
 			}
 
 		// wanneer de success key false is worden de errors weergegeven dmv de showError functie
