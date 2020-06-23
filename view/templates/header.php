@@ -16,13 +16,14 @@
 	<link rel="stylesheet" type="text/css" href="<?=URL?>css/style.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL?>css/login.css">
 	<link rel="stylesheet" type="text/css" href="<?=URL?>css/media.css">
+	<link rel="icon" href="https://studio-verhuur.tk/public/img/assets/icon.png" type="image/png">
 </head>
 <body>
 
 <nav class='row animate__animated animate__fadeIn'>
 	<div class='col-lg-6 p-3'>
 		<h2 class='sv-color-mint sv-text-bold m-0 pl-3 animate__animated animate__bounceInLeft'>Studio Verhuur</h2>
-		<p class='sv-color-mint sv-text-light m-0 pl-3 animate__animated animate__bounceInLeft'>The first step to your new #1 record!</p>		
+		<p class='sv-color-mint sv-text-light m-0 pl-3 animate__animated animate__bounceInLeft'>The first step to your new #1 record!</p>
 	</div>
 
 	<ul class='col-lg-6 d-flex justify-content-end p-5'>
@@ -34,4 +35,3 @@
 </nav>
 
 <div class="mainwrapper">
-

@@ -9,7 +9,18 @@ function detail($id){
 		'session' => readSession()
     ));
 }
+<<<<<<< HEAD
 
 function delete($id){
 	deleteReservation($id);
 }
+=======
+function destroy($id){
+	deleteReservation($id);
+
+	render('reservations', array(
+        'reservation' => deleteReservation($id),
+		'session' => readSession()
+    ));
+}
+>>>>>>> master
