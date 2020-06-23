@@ -1,7 +1,7 @@
 <?php
 // Database instellingen
 define('DB_TYPE', 'mysql');		// Wat voor type database gebruik je?
-define('DB_HOST', 'web0120.zxcs.nl'); // Wat is het IP adres van de server (127.0.0.1 is de lokale machine)
+define('DB_HOST', 'localhost'); // Wat is het IP adres van de server (127.0.0.1 is de lokale machine)
 define('DB_NAME', 'u40823p56189_studio'); // Wat is de database naam
 define('DB_USER', 'u40823p56189_root'); 		// Wat is de database gebruiker
 define('DB_PASS', 'hallo123');		// Wat is het database wachtwoord
@@ -15,5 +15,5 @@ define('URL', URL_PROTOCOL . URL_DOMAIN . URL_SUB_FOLDER); // Dit genereerd de s
 
 define('DEFAULT_CONTROLLER', 'Home'); 			// Dit is de standaard controller waarmee de webapplictie wordt opgestart
 
-error_reporting(0);
-ini_set('display_errors', 'Off');
+// error_reporting(0);
+// ini_set('display_errors', 'Off');

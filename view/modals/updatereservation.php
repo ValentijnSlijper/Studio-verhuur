@@ -12,7 +12,7 @@
             <p class="sv-color-lightest py-1 mb-5 text-center welcome-text">Update reservation</p>
 
             <div class="input-group my-3 animate__animated animate__fadeIn">
-              <?php var_dump($instruments) ?>
+            
               <input type="text" name="name" placeholder="Name" class="input-padding-left sv-input" value="<?=$reservation['user']?>"/>
               <div class="error-field" data-name="name"></div>
             </div>
@@ -30,14 +30,6 @@
 
             <div class="input-group my-3 animate__animated animate__fadeIn">
               <select class="input-padding-left sv-input" id="inlineFormCustomSelect">
-                <option class="mx-auto" selected ><?=$reservation['instrument']?></option>
-                <?php
-                  foreach ($instruments as $row) {?>
-                    <option value="1"><?php echo $row['name']?></option>
-                        <?php } ?>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
               </select>
               <div class="error-field" data-name="name"></div>
             </div>

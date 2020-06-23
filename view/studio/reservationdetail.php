@@ -30,7 +30,7 @@
 	</div>
 
 	<h5 class='m-0'>Instruments</h5>
-	<img src="<?= URL . $reservation['instrumentimg'] ?>" alt='instrumentimg' class='instrumentimg'>
+	<img src="<?= URL . $reservation['instrumentimg'] ?>" alt='instrumentimg' class='instrumentimg my-3'>
 	<p class='sv-color-lightest sv-font-light'><?= $reservation['instrument'] ?></p>
 
 	<p>	&#9702; </p>
@@ -40,10 +40,10 @@
 
 		<div class="row mt-4">
 			<div class="col-6">
-			<button class="sv-button-reservation mt-1" data-target="#update" data-toggle="modal">Update</button>
+			<button class="sv-button w-75 mt-1" data-target="#update" data-toggle="modal">Update</button>
 			</div>
 			<div class="col-6">
-			<button class="sv-button-reservation mt-1">Delete</button>
+			<button class="sv-button w-75 mt-1 delete-reservation" data-id='<?=$reservation['id']?>'>Delete</button>
 			</div>
 		</div>
 

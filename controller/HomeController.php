@@ -24,14 +24,15 @@ function studios(){
 function reservations(){
 	render('reservations', array(
 		'reservations' => readReservations(),
-		'session' => readSession()
+		'session' => readSession(),
+		'user' => selectUser()
 	));
 }
 
-function profile($id){
+function profile(){
 	render('profile', array(
 		'session' => readSession(),
-		'user' => selectUser($id)
+		'user' => selectUser()
 	));
 }
 

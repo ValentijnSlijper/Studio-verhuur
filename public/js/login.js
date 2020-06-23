@@ -44,13 +44,12 @@ $('.loginform').on('submit', function(e){
 			else if(data['function'] == 'register'){
 				$.post('https://studio-verhuur.tk/user/newuser/', {data: data['data']}, function(result) {
 					showError('Account created! Logging in...', '#3BBA9C');
+
+					setTimeout(function(){
+							window.location.href = 'https://studio-verhuur.tk/home/index';
+					}, 2000);					
 				});
-
-				setTimeout(function(){
-						window.location.href = 'https://studio-verhuur.tk/home/index';
-				}, 2000);
 			}
-
 		// wanneer de success key false is worden de errors weergegeven dmv de showError functie
 		}else{
 			showError(data, '#a03c3c');
@@ -110,12 +109,9 @@ function showError(msg, color){
 			}		
 		}
 	}else{
-
-		if(!$('.error').length == 1){
-			$('.errorwrapper').append(`
-				<div class='error my-3' style='background-color:${color}'>${msg} </div>
-			`);	
-		}
+		$('.errorwrapper').append(`
+			<div class='error my-3' style='background-color:${color}'>${msg} </div>
+		`);	
 
 		if(msg == 'Logging in...'){
 			$('.error').append(`<i class="fas fa-cog spin"></i>`);

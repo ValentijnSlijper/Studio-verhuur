@@ -29,7 +29,7 @@
 		<a href="<?=URL?>Home/index"><li class='sv-color-mint sv-text-light mr-5'>Home</li></a>
 		<a href="<?=URL?>Home/studios"><li class='sv-color-mint sv-text-light mr-5'>Studios</li></a>
 		<a href="<?=URL?>Home/reservations"><li class='sv-color-mint sv-text-light mr-5'>Reservations</li></a>
-		<a href="<?=$session['navlink']?>"><li class='sv-color-mint sv-text-light mr-5 login' data-toggle="modal" data-target="#login"><?=$session['navtext']?></li></a>
+		<a href="<?=$session['navlink']?>"><li class='sv-color-mint sv-text-light mr-5 header-login'><?=$session['navtext']?></li></a>
 	</ul>
 </nav>
 
