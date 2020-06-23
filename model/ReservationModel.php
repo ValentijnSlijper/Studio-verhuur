@@ -30,12 +30,30 @@ function selectReservation($id){
         JOIN instruments i ON i.id = r.instruments 
         JOIN studios s ON r.studio = s.id 
         JOIN users u ON r.user = u.id 
-        WHERE r.id = 1"
+        WHERE r.id = :id"
         );
 
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         $result = $stmt->fetch();
+    }
+    catch(PDOException $e){
+        echo "Connection failed: " . $e->getMessage();
+    }
+
+    $conn = null;
+
+    return $result;
+}
+
+function deleteReservation($id){
+    try {
+        $conn = openDatabaseConnection();
+
+        $stmt = $conn->prepare("DELETE FROM reservations WHERE id = :id");
+
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
     }
     catch(PDOException $e){
         echo "Connection failed: " . $e->getMessage();

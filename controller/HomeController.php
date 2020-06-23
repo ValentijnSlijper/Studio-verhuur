@@ -24,7 +24,8 @@ function studios(){
 function reservations(){
 	render('reservations', array(
 		'reservations' => readReservations(),
-		'session' => readSession()
+		'session' => readSession(),
+		'user' => selectUser()
 	));
 }
 

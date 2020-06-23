@@ -1,6 +1,7 @@
 <?php
 
 require(ROOT . 'model/UserModel.php');
+require(ROOT . 'model/SessionModel.php');
 
 function newuser(){
 
@@ -14,12 +15,6 @@ function newuser(){
 	createUser($name, $password, $mail);
 
 }
-
-// function userdata($id){
-
-// 	echo json_encode();
-	
-// }
 
 function login(){
 
@@ -37,6 +32,11 @@ function logout(){
 	unset($_SESSION['mail']);
 }
 
+function delete($id){
+
+	deleteUser($id);
+	logout();
+}
 
 function vars($data){
 

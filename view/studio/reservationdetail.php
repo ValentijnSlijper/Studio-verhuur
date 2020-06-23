@@ -43,7 +43,7 @@
 			<button class="sv-button w-75 mt-1" data-target="#update" data-toggle="modal">Update</button>
 			</div>
 			<div class="col-6">
-			<button class="sv-button w-75 mt-1">Delete</button>
+			<button class="sv-button w-75 mt-1 delete-reservation" data-id='<?=$reservation['id']?>'>Delete</button>
 			</div>
 		</div>
 

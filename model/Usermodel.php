@@ -53,14 +53,19 @@ function selectUser(){
 	try{
 		$conn = openDatabaseConnection();
 
-		$mail = $_SESSION['mail'];
+		if (!isset($_SESSION['mail'])){
+			$mail = 'remynijsten@hotmail.com';
+		}else{
+			$mail = $_SESSION['mail'];
+		}
 
 		$stmt = $conn->prepare("SELECT id, name, mail FROM users WHERE mail = :mail");
 		$stmt->bindParam(":mail", $mail);
 		$stmt->execute();
 		$result = $stmt->fetch();
 	}
-		catch(PDOException $e){
+	
+	catch(PDOException $e){
 		echo "Connection failed: " . $e->getMessage();
 	}
 
@@ -79,15 +84,19 @@ function selectUser(){
 // 	$stmt->execute();  
 // }
 
-// function deleteUser($id){
-// 	$conn = openDatabaseConnection();
-// 	$stmt = $conn->prepare("DELETE FROM users WHERE id = :id");
-// 	$stmt->bindParam(":id", $id);
-// 	$stmt->execute();
-// 	$stmt = $conn->prepare("DELETE FROM reservations WHERE id = :id");
-// 	$stmt->bindParam(":id", $id);
-// 	$stmt->execute();
-// }
+function deleteUser($id){
+	
+	$conn = openDatabaseConnection();
+
+	$stmt = $conn->prepare("DELETE FROM users WHERE id = :id");
+	$stmt->bindParam(":id", $id);
+	$stmt->execute();
+
+	$stmt = $conn->prepare("DELETE FROM reservations WHERE user = :id");
+	$stmt->bindParam(":id", $id);
+	$stmt->execute();
+
+}
 
 function duplicateUser($mail){
 	$conn = openDatabaseConnection();

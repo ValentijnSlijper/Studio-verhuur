@@ -15,6 +15,10 @@ body{
 
 /*TYPE & COLORS*/
 
+.big-icon{
+	font-size: 5em;
+}
+
 .sv-color-white{
 	color: white;
 }
@@ -62,6 +66,11 @@ body{
     font-weight: lighter;
 }
 
+.add-reservation{
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
 /*HEADER*/
 
 .row{
@@ -106,7 +115,7 @@ nav ul a, nav ul li{
 	position: relative;
 }
 
-.sv-button{
+.sv-button, .sv-button-inactive{
 	width: 200px;
     height: 50px;
     background: #3BBA9C;
@@ -116,7 +125,11 @@ nav ul a, nav ul li{
     transition: 0.2s ease;
 }
 
-.sv-button:hover{
+.sv-button-inactive{
+	background: lightgrey!important;
+}
+
+.sv-button:hover, .sv-button-inactive:hover{
 	transform: scale(0.9, 0.9);
 	background-color: white;
 }
@@ -202,10 +215,6 @@ nav ul a, nav ul li{
 .instrumentimg{
 	width: 75px;
 	height: 75px;
-}
-
-.profile-container i {
-	font-size: 5em;
 }
 
 /*FOOTER*/

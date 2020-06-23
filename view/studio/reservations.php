@@ -16,6 +16,7 @@
 		<tbody>
 
 			<?php 
+
 				foreach($reservations as $key=>$value): 
 
 				$id = $value['id'];
@@ -41,4 +42,7 @@
 			
 		</tbody>
 	</table>	
+
+	<i class="fas fa-plus-circle sv-color-mint add-reservation my-3 animate__animated"></i>
+
 </div>

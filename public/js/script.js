@@ -12,7 +12,7 @@ $('.booknow').on('click', function(){
     });
 });
 
-$('.login').on('click', function(){
+$('.header-login').on('click', function(){
 	$(this).text() == 'Login' ? $('.login').modal('show') : '' ;
 });
 

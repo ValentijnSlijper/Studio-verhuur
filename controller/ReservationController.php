@@ -9,3 +9,7 @@ function detail($id){
 		'session' => readSession()
     ));
 }
+
+function delete($id){
+	deleteReservation($id);
+}
