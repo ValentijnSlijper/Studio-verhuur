@@ -20,3 +20,10 @@ $('.deletereservation button').on('click', function(){
 		$('.deletereservation').modal('hide');
 	}
 });
+
+$('.resform').on('submit', function(e){
+	// voorkomt dat de form automatisch submit wanneer je op de button klikt
+	e.preventDefault();
+
+	
+});

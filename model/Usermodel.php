@@ -98,6 +98,18 @@ function deleteUser($id){
 
 }
 
+function readUsernames(){
+	$conn = openDatabaseConnection();
+
+	$stmt = $conn->prepare("SELECT name FROM users");
+	$stmt->bindParam(":mail", $mail);
+	$stmt->execute();
+	
+	$data = $stmt->fetchAll();
+
+	return $data;
+}
+
 function duplicateUser($mail){
 	$conn = openDatabaseConnection();
 

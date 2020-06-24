@@ -5,15 +5,18 @@ $('.logout').on('click', function(){
 });
 
 $('.delete-user').on('click', function(){
-	$('.delete').modal('show');
+	$('.deleteuser').modal('show');
 });
 
-$('.delete button').on('click', function(){
+$('.deleteuser button').on('click', function(){
+
+	console.log($(this).text());
+
 	if($(this).text() == 'Yes'){
 		$.post('https://studio-verhuur.tk/user/delete/' + $('.delete-user').attr("data-id"), {}, function() {
 			window.location.href = 'https://studio-verhuur.tk/home/index';
 		});
 	}else{
-		$('.delete').modal('hide');
+		$('.deleteuser').modal('hide');
 	}
 });

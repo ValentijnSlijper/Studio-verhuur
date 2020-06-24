@@ -1,6 +1,7 @@
 <?php
 
 require(ROOT . "model/UserModel.php");
+require(ROOT . "model/ReservationModel.php");
 
 function error_404(){
 	echo "404 - De gevraagde route is niet beschikbaar. Controleer je controller en action naam";
@@ -31,6 +32,7 @@ function validate(){
 				if(empty($value['value']) && $_POST['function'] != 'login'){
 					array_push($error, 'name cannot be empty');
 				}
+
 				break;
 
 			case 'mail':
@@ -58,6 +60,20 @@ function validate(){
 					array_push($error, 'password cannot be empty');
 				} 
 				break;
+
+			case 'starttime':
+					// if(timecheck($value['value'])){
+
+					// }
+			array_push($error, $value['value']);
+				break;
+
+			case 'endtime':
+					// if(timecheck($value['value'])){
+
+					// }
+			array_push($error, $value['value']);
+				break;
 			
 			default:
 				break;
@@ -75,6 +91,10 @@ function validate(){
 	}
 
 	print_r(json_encode($error));
+}
+
+function timecheck($starttime){
+
 }
 
 function test_input($data) {

@@ -15,6 +15,10 @@ body{
 
 /*TYPE & COLORS*/
 
+w-80{
+	width: 80%!important;
+}
+
 .big-icon{
 	font-size: 5em;
 }
@@ -158,6 +162,14 @@ nav ul a, nav ul li{
     text-align: center;
     margin: 0 auto;
     border: 0;
+}
+
+select{
+	text-align-last: center;
+}
+
+.instrument-wrapper{
+	
 }
 
 .sv-small{
