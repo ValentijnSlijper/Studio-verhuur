@@ -177,4 +177,7 @@ $('select[name="studio"]').on('change', function(){
 	updateprice(modal);
 });
 
+$('.requestinvoice').on('click', function(){
+	window.location.href = 'https://studio-verhuur.tk/reservation/invoice/' + $(this).data('id');
+});
 

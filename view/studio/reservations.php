@@ -1,5 +1,3 @@
-<?php var_dump($reservations) ?>
-
 <div class="sv-container">
 	<table class="table">
 		<thead>

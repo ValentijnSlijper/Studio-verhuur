@@ -54,7 +54,9 @@
 				echo '</div>';
 
 				echo '<div class="col-4">';
-					echo '<button class="sv-button w-100 mt-1 sv-small-font">Invoice</button>';
+					echo '<button class="sv-button w-100 mt-1 sv-small-font requestinvoice" data-id="';
+						echo $res_id;
+					echo '">Invoice</button>';
 				echo '</div>';
 
 			}?>
