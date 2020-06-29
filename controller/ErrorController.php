@@ -26,6 +26,10 @@ function validate(){
 				$formfunction = $value['value'];
 			break;
 
+			case 'id':
+				$id = test_input($value['value']);
+			break;
+
 			case 'name':
 
 				// haalt de user data door de filter gehaald om te checken of het een valide structuur heeft
@@ -67,6 +71,8 @@ function validate(){
 				if($_POST['function'] == 'register' && duplicateUser($value['value'])){
 					array_push($error, 'mail allready used');
 				}
+
+				$mail = test_input($value['value']);
 				break;
 
 			case 'password':
@@ -75,6 +81,8 @@ function validate(){
 				if(empty($value['value'])){
 					array_push($error, 'password cannot be empty');
 				} 
+
+				$password = $value['value'];
 				break;
 
 			case 'starttime':
@@ -126,14 +134,23 @@ function validate(){
 		$error['success'] = true;
 		$error['function'] = $_POST['function'];
 		$error['data'] = $_POST['data'];
-		$error['reservation'] = array(
-			'studio' => $studio,
-			'name' => $name,
-			'starttime' => $booktime['starttime'],
-			'endtime' => $booktime['endtime'],
-			'instrument' => $instrument,
-			'id' => $res_id
-		);
+		if($formfunction == 'createreservation' || $formfunction == 'updatereservation'){
+			$error['reservation'] = array(
+				'studio' => $studio,
+				'name' => $name,
+				'starttime' => $booktime['starttime'],
+				'endtime' => $booktime['endtime'],
+				'instrument' => $instrument,
+				'id' => $res_id
+			);
+		}else if($formfunction == 'updateuser'){
+			$error['userdata'] = array(
+				'id' => $id,
+				'name' => $name,
+				'mail' => $mail,
+				'password' => $password
+			);
+		}
 	}
 
 	print_r(json_encode($error));

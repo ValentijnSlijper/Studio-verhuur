@@ -32,6 +32,13 @@ function logout(){
 	unset($_SESSION['mail']);
 }
 
+function update(){
+
+	$_POST['data']['password'] != null ? $_POST['data']['password'] = password_hash($_POST['data']['password'], PASSWORD_BCRYPT) : '' ;
+
+	updateUser($_POST['data']);
+}
+
 function delete($id){
 
 	deleteUser($id);

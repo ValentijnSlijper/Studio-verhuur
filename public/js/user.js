@@ -28,5 +28,18 @@ $('.update-user').on('click', function(){
 $('.updateuserform').on('submit', function(e){
 	e.preventDefault();
 
-	
+	$.post('https://studio-verhuur.tk/error/validate/', { data: $('.updateuserform').serializeArray() }, function(result) {
+
+		const data = JSON.parse(result);
+
+		if(data['success'] == true){
+			$.post('https://studio-verhuur.tk/user/update', {data: data['userdata']}, function() {
+
+				showError('Succesfully updated your profile.', '#3BBA9C');
+
+			});
+		}else{
+			showError(data, '#a03c3c');
+		}
+	});
 });

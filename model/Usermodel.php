@@ -80,14 +80,42 @@ function selectUser(){
 }
 
 
-// function updateUser($data, $id){
-// 	$conn = openDatabaseConnection();
-// 	$stmt = $conn->prepare("UPDATE users SET name = :name, password = :password where id = :id");
-// 	$stmt->bindParam(":id", $id);
-// 	$stmt->bindParam(":age", $data["age"]);
-// 	$stmt->bindParam(":password", $data["password"]);
-// 	$stmt->execute();  
-// }
+function updateUser($data){
+
+	$id = $data['id'];
+	$name = $data['name'];
+	$mail = $data['mail'];
+	$password = $data['password'];
+	
+
+	try{
+		$conn = openDatabaseConnection();
+
+		$stmt = $conn->prepare("UPDATE users SET name = :name, mail=:mail WHERE id = :id");
+		$stmt->bindParam(":name", $name);
+		$stmt->bindParam(":mail", $mail);
+		$stmt->bindParam(":id", $id);
+		$stmt->execute();
+
+		$_SESSION['name'] = $name;
+		$_SESSION['mail'] = $mail;
+
+		if($password != ""){
+			$stmt = $conn->prepare("UPDATE users SET password = :password WHERE id = :id");
+			$stmt->bindParam(":id", $id);
+			$stmt->bindParam(":password", $password);
+			$stmt->execute();		
+		}
+	}
+	
+	catch(PDOException $e){
+		echo "Connection failed: " . $e->getMessage();
+	}
+
+	$conn = null;
+
+	return $result;
+}
 
 function deleteUser($id){
 	
