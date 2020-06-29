@@ -12,28 +12,44 @@ function validate(){
 
 	// initialiseren van error array
 	$error = array();
+	$booktime = array();
 
 	// loopen over de post data array
 	foreach ($_POST['data'] as $key => $value){
 
-		// wanneer de waarde van een input field leeg is, word dit in de errors array gepushed	
-
+		$res_id = $_POST['data'][0]['value'];
 
 		// extra check per veld voor vereiste gegevens of tekens
 		switch ($value['name']) {
+
+			case 'function':
+				$formfunction = $value['value'];
+			break;
+
 			case 'name':
 
 				// haalt de user data door de filter gehaald om te checken of het een valide structuur heeft
-				if (!preg_match("/^[a-zA-Z ]*$/", $value['value'])) {
-					array_push($error, 'Name can only contain letters and whitespace');
+				if (!preg_match("/^[0-9a-zA-Z ]*$/", $value['value']) && $formfunction != 'createreservation') {
+					array_push($error, 'Name can only contain letters, numbers and whitespace');
 				}
 
 				// wanneer het email veld leeg is, en de form niet op login staat, word dit aan de error array toegevoegd
-				if(empty($value['value']) && $_POST['function'] != 'login'){
-					array_push($error, 'name cannot be empty');
+				if(empty($value['value']) && $_POST['function'] != 'login' || $value['value'] == 'empty'){
+					array_push($error, 'Name cannot be empty');
 				}
 
+				$name = test_input($value['value']);
+
 				break;
+
+			case 'studio':
+				if(empty($value['value']) || $value['value'] == 'empty'){
+					array_push($error, 'Please select your studio');
+				}
+
+				$studio = test_input($value['value']);
+
+			break;
 
 			case 'mail':
 
@@ -62,17 +78,25 @@ function validate(){
 				break;
 
 			case 'starttime':
-					// if(timecheck($value['value'])){
 
-					// }
-			array_push($error, $value['value']);
+				if($value['value'] == 'empty'){
+					array_push($error, 'Enter your start time');
+				}			
+
+				$booktime['starttime'] = test_input(intval($value['value']));
 				break;
 
 			case 'endtime':
-					// if(timecheck($value['value'])){
 
-					// }
-			array_push($error, $value['value']);
+				if($value['value'] == 'empty'){
+					array_push($error, 'Enter your end time');
+				}	
+
+				$booktime['endtime'] = test_input(intval($value['value']));
+				break;
+
+			case 'instrument':
+				$instrument = test_input($value['value']);
 				break;
 			
 			default:
@@ -81,6 +105,20 @@ function validate(){
 
 	};
 
+
+	// checkt of de starttijd en de eindtijd niet hetzelfde zijn
+	if($formfunction == 'createreservation' || $formfunction == 'updatereservation'){
+		$booktime['starttime'] == $booktime['endtime'] ? array_push($error, 'Start time and end time cannot be the same') : '' ;		
+	}
+
+
+	// checkt of de studio vrij is op het te boeken tijdstip
+	if($formfunction == 'createreservation'){
+		timecheck($booktime, $studio) ? '' : array_push($error, 'This studio is not available at this time');
+	}else if($formfunction == 'updatereservation'){
+		updatecheck($booktime, $studio, $res_id) ? '' : array_push($error, 'This studio is not available at this time');
+	}
+
 	// wanneer de error array geen waardes bevat word de success key hiervan op true gezet
 	// de function van de form word weer terug gestuurd voor de 2e AJAX call (register, reservation of login)
 	// ook wordt de sanitized data mee teruggestuurd
@@ -88,13 +126,76 @@ function validate(){
 		$error['success'] = true;
 		$error['function'] = $_POST['function'];
 		$error['data'] = $_POST['data'];
+		$error['reservation'] = array(
+			'studio' => $studio,
+			'name' => $name,
+			'starttime' => $booktime['starttime'],
+			'endtime' => $booktime['endtime'],
+			'instrument' => $instrument,
+			'id' => $res_id
+		);
 	}
 
 	print_r(json_encode($error));
 }
 
-function timecheck($starttime){
+// functie om te kijken of de studio beschikbaar is op de gekozen tijd
+function timecheck($booktime, $studio){
 
+	// alle rijen ophalen uit de database
+	$reservations = filterReservations($studio);
+
+	return crosscheck($booktime, $reservations);
+
+}
+
+// functie om te kijken of de studio beschikbaar is op de gekozen tijd
+function updatecheck($booktime, $studio, $id){
+
+	// alle rijen ophalen uit de database
+	$reservations = exceptReservations($studio, $id);
+
+	$res_time = array();
+
+	return crosscheck($booktime, $reservations);
+}
+
+function crosscheck($booktime, $reservations){
+
+	$res_time = array();
+
+	foreach ($reservations as $key => $value) {
+
+		$res_time['starttime'] = intval(explode(':', $reservations[$key]['starttime'])[0]);
+		$res_time['endtime'] = intval(explode(':', $reservations[$key]['endtime'])[0]);	
+
+
+		// zit jouw starttijd tussen een reserverings tijd
+		if($booktime['starttime'] > $res_time['starttime'] && $booktime['starttime'] < $res_time['endtime']){
+			return false;
+			break;
+		}
+
+		// zit jouw eindtijd tussen een reserverings tijd
+		if($booktime['endtime'] > $res_time['starttime'] && $booktime['endtime'] < $res_time['endtime']){
+			return false;
+			break;
+		}
+
+		// overlapt jouw grotere boeking een kleinere reservering
+		if($booktime['starttime'] < $res_time['starttime'] && $booktime['endtime'] > $res_time['endtime']){
+			return false;
+			break;
+		}
+
+		// is jouw start tijd of eind tijd gelijk aan de tijd van een reservering
+		if($booktime['starttime'] == $res_time['starttime'] || $booktime['endtime'] == $res_time['endtime']){
+			return false;
+			break;
+		}
+	}
+	
+	return true;
 }
 
 function test_input($data) {

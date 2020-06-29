@@ -31,6 +31,7 @@ function render($filename, $data = null)
 	require(ROOT . '/view/modals/createreservation.php');
 	require(ROOT . '/view/modals/deletereservation.php');
 	require(ROOT . '/view/modals/deleteuser.php');
+	require(ROOT . '/view/modals/updateuser.php');
 	require(ROOT . 'view/studio/' . $filename . '.php');
 	require(ROOT . 'view/templates/footer.php');
 }

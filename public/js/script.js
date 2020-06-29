@@ -1,13 +1,16 @@
 $('.booknow').on('click', function(){
 
+    var data_id = $(this).data('id');
+
     $.post('https://studio-verhuur.tk/session/jsonSession', {}, function(result) {
 
 		const data = JSON.parse(result);
 
         if (data['login'] !== true) {
-            $('.login').modal('show')
+            $('.login').modal('show');
         }else {
-            window.location.href=('https://studio-verhuur.tk/home/reservations');
+            $('.resform select[name="studio"]').val(data_id);
+            $('.resform').modal('show');
         }
     });
 });

@@ -7,11 +7,16 @@ function createUser($name, $password, $mail){
 	try{
 		$conn = openDatabaseConnection();
 
-		$statement = $conn->prepare("INSERT INTO users (name, password, mail) VALUES (:name, :password, :mail)");
-		$statement->bindParam(":name", $name);
-		$statement->bindParam(":password", $password);
-		$statement->bindParam(":mail", $mail);
-		$statement->execute();		
+		$stmt = $conn->prepare("INSERT INTO users (name, password, mail) VALUES (:name, :password, :mail)");
+		$stmt->bindParam(":name", $name);
+		$stmt->bindParam(":password", $password);
+		$stmt->bindParam(":mail", $mail);
+		$stmt->execute();
+
+		$_SESSION['login'] = true;
+		$_SESSION['name'] = $data['name'];
+		$_SESSION['mail'] = $mail;
+
 	}
 		catch(PDOException $e){
 		echo "Connection failed: " . $e->getMessage();
@@ -101,7 +106,7 @@ function deleteUser($id){
 function readUsernames(){
 	$conn = openDatabaseConnection();
 
-	$stmt = $conn->prepare("SELECT name FROM users");
+	$stmt = $conn->prepare("SELECT id, name FROM users");
 	$stmt->bindParam(":mail", $mail);
 	$stmt->execute();
 	

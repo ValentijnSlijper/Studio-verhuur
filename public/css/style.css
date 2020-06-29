@@ -23,6 +23,10 @@ w-80{
 	font-size: 5em;
 }
 
+.sv-small-font{
+	font-size: 0.75em;
+}
+
 .sv-color-white{
 	color: white;
 }
@@ -162,6 +166,9 @@ nav ul a, nav ul li{
     text-align: center;
     margin: 0 auto;
     border: 0;
+    background: white;
+    color: black;
+    line-height: 2em;
 }
 
 select{

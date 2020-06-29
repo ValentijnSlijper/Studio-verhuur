@@ -20,3 +20,13 @@ $('.deleteuser button').on('click', function(){
 		$('.deleteuser').modal('hide');
 	}
 });
+
+$('.update-user').on('click', function(){
+	$('.updateuser').modal('show');
+});
+
+$('.updateuserform').on('submit', function(e){
+	e.preventDefault();
+
+	
+});

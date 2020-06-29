@@ -10,15 +10,24 @@ require(ROOT . "model/InstrumentModel.php");
 function index(){
 
 	render('index', array(
-		'session' => readSession()
+		'reservations' => readReservations(),
+		'session' => readSession(),
+		'user' => selectUser(),
+		'users' => readUsernames(),
+		'studios' => getAllStudios(),
+		'instruments' => readInstruments()
 	));
 }
 
 function studios(){
 
     render('studios', array(
-        'studios' => getAllStudios(),
-	    'session' => readSession()
+		'reservations' => readReservations(),
+		'session' => readSession(),
+		'user' => selectUser(),
+		'users' => readUsernames(),
+		'studios' => getAllStudios(),
+		'instruments' => readInstruments()
 	));
 }
 

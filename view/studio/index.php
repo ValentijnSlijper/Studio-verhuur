@@ -4,7 +4,7 @@
 		<h2 class='mb-5 sv-color-mint'>Studio 1</h2>
 		<p class='sv-color-lightest sv-line-height sv-text-light media-p'>A colorfull studio filled with the newest modern equipment. Ready to produce any mainstage track!</p>
 
-		<button class="sv-button my-5 booknow">Book now!</button>
+		<button class="sv-button my-5 booknow" data-id="1">Book now!</button>
 	</div>
 </div>
 
@@ -18,7 +18,7 @@
 		<h2 class='mb-5 sv-color-mint'>Studio 3</h2>
 		<p class='sv-color-lightest sv-line-height sv-text-light media-p'>Mesto's studio is now available. Come record your favorite tune in this high-end studio!</p>
 
-		<button class="sv-button my-5 booknow">Book now!</button>
+		<button class="sv-button my-5 booknow" data-id="3">Book now!</button>
 	</div>
 
 </div>

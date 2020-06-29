@@ -1,50 +1,62 @@
-<div class="modal update" id="update" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+<div class="modal updateresform" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
 
-        <div class='sv-container'>
+            <div class='sv-container'>
 
-          <div class="select row">
-            <h3 class="col-12 pt-3 text-center active-login">Studio(cijfer)</h3>
-          </div>
+            <form class="updatereservationform text-center">
+                <p class="sv-color-lightest py-1 mb-5 text-center welcome-text">Book your studio</p>
 
-          <form class="updateform text-center">
-            <p class="sv-color-lightest py-1 mb-5 text-center welcome-text">Update reservation</p>
+                <input type="hidden" name="id" value="<?= $reservation['id'] ?>">
 
-            <div class="input-group my-3 animate__animated animate__fadeIn">
-            
-              <input type="text" name="name" placeholder="Name" class="input-padding-left sv-input" value="<?=$reservation['user']?>"/>
-              <div class="error-field" data-name="name"></div>
+                <div class="input-group my-3">
+                    <select name='studio' class='sv-input'>
+                    <option selected value='empty'>Select your studio</option>
+                        <?php foreach($studios as $key => $value): ?>
+                            <option value=<?= $key + 1 ?> ><?=$value['name'] . ' - $' . $value['price'] . ' per hour'?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div class="input-group my-3">
+                    <select name='name' class='sv-input'>
+                        <option value="<?= $user['id'] ?>" selected><?= $_SESSION['name'] ?></option>
+                    </select>
+                </div>
+
+                <div class="input-group my-3">
+                    <select name='starttime' class='sv-input'>
+                        <option selected value='empty'>Starttime</option>
+                    </select>
+                </div>
+
+                <div class="input-group my-3">
+                    <select name='endtime' class='sv-input'>
+                        <option selected value='empty'>Endtime</option>
+                    </select>
+                </div>
+
+                <select name='instrument' class="sv-input">
+                    <option selected value='empty'>Add an instrument</option>
+                    <?php foreach($instruments as $key=>$value): ?>
+                        
+                        <option value=<?=$value['name']?>><?=$value['name'] . ' - $' . $value['price'] . ' per hour'?></option>
+                    <?php endforeach; ?>   
+                </select>
+
+                <p class="sv-color-white mt-5">Price:</p>
+                <div class='sv-input mb-3 sv-color-white bookprice'></div>
+
+                <div class="errorwrapper"></div>
+
+                <input type="hidden" name="function" value="updatereservation" class="form-function">
+
+                <button class="sv-button mt-5">UPDATE</button>
+
+                <p class='mt-5 closemodal'>Close Window</p>    
+            </form>
+
             </div>
-
-
-
-            <div class="input-group my-3 animate__animated animate__fadeIn">
-              <input type="time" name="starttime" placeholder="Start Time" class="input-padding-left sv-input" value="<?=$reservation["starttime"] ?>"/>
-              <div class="error-field" data-name="starttime"></div>
-            </div>
-            <div class="input-group my-3 animate__animated animate__fadeIn">
-              <input type="time" name="endtime" placeholder="End Time" class="input-padding-left sv-input" value="<?=$reservation['endtime']?>"/>
-              <div class="error-field" data-name="endtime"></div>
-            </div>
-
-            <div class="input-group my-3 animate__animated animate__fadeIn">
-              <select class="input-padding-left sv-input" id="inlineFormCustomSelect">
-              </select>
-              <div class="error-field" data-name="name"></div>
-            </div>
-
-            <input type="hidden" name="function" value="login" class="form-function">
-            <button class="sv-button mt-5">Submit</button>
-
-            <p class='mt-5 closemodal'>Close Window</p>
-          </form>
-
-          <div class="panel invisible error animated">
-            <div class="panel-body errorMSG"></div>
-          </div>
-
         </div>
     </div>
-  </div>
 </div>

@@ -39,12 +39,26 @@
 
 
 		<div class="row mt-4">
-			<div class="col-6">
-			<button class="sv-button w-75 mt-1" data-target="#update" data-toggle="modal">Update</button>
-			</div>
-			<div class="col-6">
-			<button class="sv-button w-75 mt-1 delete-reservation" data-id='<?=$reservation['id']?>'>Delete</button>
-			</div>
+			<?php if($reservation['user'] == $_SESSION['name']){
+
+				$res_id = $reservation['id'];
+
+				echo '<div class="col-4">';
+					echo '<button class="sv-button w-100 mt-1 sv-small-font update-reservation">Update</button>';
+				echo '</div>';
+
+				echo '<div class="col-4">';
+					echo '<button class="sv-button w-100 mt-1 sv-small-font delete-reservation" data-id="';
+						echo $res_id;
+					echo '">Delete</button>';
+				echo '</div>';
+
+				echo '<div class="col-4">';
+					echo '<button class="sv-button w-100 mt-1 sv-small-font">Invoice</button>';
+				echo '</div>';
+
+			}?>
+
 		</div>
 
 	</div>
