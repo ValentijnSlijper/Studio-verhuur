@@ -1,5 +1,3 @@
-<?php var_dump($reservation) ?>
-
 <div class="sv-container row animate__animated animate__fadeIn">
 
 	<img src='<?= URL . $reservation['studioimg'] ?>' class='col-8 p-0 clippath-right'>
@@ -56,7 +54,7 @@
 				echo '<div class="col-4">';
 					echo '<button class="sv-button w-100 mt-1 sv-small-font requestinvoice" data-id="';
 						echo $res_id;
-					echo '">Invoice</button>';
+					echo '">Download<br>Invoice</button>';
 				echo '</div>';
 
 			}?>

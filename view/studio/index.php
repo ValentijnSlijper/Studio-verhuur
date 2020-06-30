@@ -26,5 +26,3 @@
 <div class="sv-container sv-small text-center animate__animated animate__fadeIn">
 	<p class="quote">"Did a session here with Drake. Great quality studios! - Hardwell"</p>
 </div>
-
-<?php var_dump($session); ?>

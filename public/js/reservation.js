@@ -1,11 +1,22 @@
 $('.add-reservation').on('click', function(){
 	$(this).addClass('animate__rubberBand');
 
-	setTimeout(function(){
-		$('.animate__rubberBand').removeClass('animate__rubberBand');
-		$('.resform').modal('toggle');
-	}, 1000);
-})
+    $.post('https://studio-verhuur.tk/session/jsonSession', {}, function(result) {
+
+		const data = JSON.parse(result);
+
+        if (data['login'] !== true) {
+
+        	$('.login').modal('show');
+        }else {
+        	
+			setTimeout(function(){
+				$('.animate__rubberBand').removeClass('animate__rubberBand');
+				$('.resform').modal('toggle');
+			}, 1000);
+        }
+    });
+});
 
 $('.delete-reservation').on('click', function(){
 	$('.deletereservation').modal('show');
